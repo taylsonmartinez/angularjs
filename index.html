@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Angular JS</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="vendor/twitter/bootstrap/dist/css/bootstrap.css">
+        <link href='http://fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+<table width="100%" cellspacing="0" class="table table-striped" style="font-size: 18px;">
+	<thead>
+		<th>Produto</th>
+		<th>Preço</th>
+		<th>Editar</th>
+		<th>Deletar</th>
+	</thead>
+	<tbody ng-controller="produtosController">
+		<tr ng-repeat="produto in produtos">
+			<td>{{produto.nome}}</td>
+			<td>{{produto.preco}}</td>
+		</tr>
+	</tbody>
+</table>
+<script type="text/javascript" src="public/js/angular/angular.js"></script>
+<script type="text/javascript" src="public/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="public/js/angular/controllers/controllers.js"></script>
+</body>
+</html>
