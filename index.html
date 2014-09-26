@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="public/css/styles.css">
 </head>
 <body>
+<div id="busca">
+	<input type="text" placeholder="Digite um nome" ng-model="buscaProdutos">
+</div>
 <table width="100%" cellspacing="0" class="table table-striped" style="font-size: 18px;">
 	<thead>
 		<th>Produto</th>
@@ -16,7 +19,7 @@
 		<th>Deletar</th>
 	</thead>
 	<tbody ng-controller="produtosController">
-		<tr ng-repeat="produto in produtos">
+		<tr ng-repeat="produto in produtos | filter: buscaProdutos">
 			<td>{{produto.nome}}</td>
 			<td>{{produto.preco}}</td>
 		</tr>
