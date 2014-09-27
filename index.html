@@ -8,21 +8,34 @@
         <link rel="stylesheet" href="public/css/styles.css">
 </head>
 <body>
-<div id="busca">
-	<input type="text" placeholder="Digite um nome" ng-model="buscaProdutos">
+<div id="busca" >
+	<input type="text" placeholder="Digite um nome" ng-model="buscaProdutos" class="form-control">
 </div>
-<table width="100%" cellspacing="0" class="table table-striped" style="font-size: 18px;">
+<table width="100%" cellspacing="0" class="table table-hover" style="font-size: 18px;">
 	<thead>
 		<th>Produto</th>
 		<th>Preço</th>
+		<th>Data</th>
 		<th>Editar</th>
 		<th>Deletar</th>
 	</thead>
 	<tbody ng-controller="produtosController">
 		<tr ng-repeat="produto in produtos | filter: buscaProdutos">
-			<td>{{produto.nome}}</td>
-			<td>{{produto.preco}}</td>
+			<td>{{produto.nome | uppercase}}</td>
+			<td>{{produto.preco | currency: "RS "}}</td>
+			<td>{{produto.data | date: "dd/MM/yyyy"}}</td>
+			<td>
+				<button type="button" class="btn btn-default btn-lg">
+					<span class="glyphicon glyphicon-pencil"></span> Editar
+				</button>
+			</td>
+			<td>
+				<button type="button" class="btn btn-default btn-lg">
+					<span class="glyphicon glyphicon-remove-circle"></span> Deletar
+				</button>
+			</td>
 		</tr>
+	
 	</tbody>
 </table>
 <script type="text/javascript" src="public/js/angular/angular.js"></script>
