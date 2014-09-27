@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
 	<title>Angular JS</title>
         <meta charset="utf-8">
@@ -25,12 +25,12 @@
 			<td>{{produto.preco | currency: "RS "}}</td>
 			<td>{{produto.data | date: "dd/MM/yyyy"}}</td>
 			<td>
-				<button type="button" class="btn btn-default btn-lg">
+				<button type="button" class="btn btn-primary btn-lg">
 					<span class="glyphicon glyphicon-pencil"></span> Editar
 				</button>
 			</td>
 			<td>
-				<button type="button" class="btn btn-default btn-lg">
+				<button type="button" class="btn btn-danger btn-lg">
 					<span class="glyphicon glyphicon-remove-circle"></span> Deletar
 				</button>
 			</td>
@@ -40,6 +40,7 @@
 </table>
 <script type="text/javascript" src="public/js/angular/angular.js"></script>
 <script type="text/javascript" src="public/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="public/js/angular/config.js"></script>
 <script type="text/javascript" src="public/js/angular/controllers/controllers.js"></script>
 </body>
 </html>
