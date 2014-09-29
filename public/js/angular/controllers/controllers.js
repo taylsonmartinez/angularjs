@@ -1,8 +1,11 @@
 myApp.controller('homeController',  function  ($scope) {
-	var produtos = [
-		{nome: 'Monitor', preco: '15.50', data: "1393032898247"},
-		{nome: 'Teclado', preco: '25.50', data: "1393032898247"},
-		{nome: 'Placa de Video', preco: '1115.50', data: "1393032898247"}
-	];
 	$scope.produtos = produtos;
+
+
+	//deletar
+	$scope.deletar = function(index){
+		var indexof = $scope.produtos.indexOf(index);
+		console.log(indexof);
+		$scope.produtos.splice(indexof, 1);
+	}
 });
