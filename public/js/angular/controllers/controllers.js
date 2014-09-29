@@ -1,4 +1,4 @@
-myApp.controller('produtosController',  function  ($scope) {
+myApp.controller('homeController',  function  ($scope) {
 	var produtos = [
 		{nome: 'Monitor', preco: '15.50', data: "1393032898247"},
 		{nome: 'Teclado', preco: '25.50', data: "1393032898247"},
