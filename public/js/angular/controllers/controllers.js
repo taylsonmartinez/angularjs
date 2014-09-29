@@ -1,6 +1,13 @@
 myApp.controller('homeController',  function  ($scope) {
 	$scope.produtos = produtos;
 
+	//cadastrar
+	$scope.add = function(){
+		console.log($scope.produto);
+		//unshift
+		$scope.produto.data = '1393032898247';
+		produtos.unshift($scope.produto);
+	}
 
 	//deletar
 	$scope.deletar = function(index){

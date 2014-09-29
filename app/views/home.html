@@ -1,6 +1,17 @@
 <div id="busca" >
 	<input type="text" placeholder="Digite um nome" ng-model="buscaProdutos" class="form-control">
 </div>
+
+<br />
+<button ng-click="cadastrar = !cadastrar" class="btn btn-default">Cadastrar</button>
+<br />
+<br />
+<div id="adicionar" ng-show="cadastrar">
+	<input type="text" ng-model="produto.nome" placeholder="Nome do produto" />
+	<input type="text" ng-model="produto.preco" placeholder="Preco do produto" />
+<button ng-click="add()" class="btn btn-success">Cadastrar Produto</button>
+</div>
+
 <table width="100%" cellspacing="0" class="table table-hover" style="font-size: 18px;">
 	<thead>
 		<th>Produto</th>
