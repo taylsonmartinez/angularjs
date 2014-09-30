@@ -12,6 +12,7 @@ myApp.config(function($routeProvider){
 	
 	$routeProvider
 	.when('/',{templateUrl: 'app/views/home.html', controller: 'homeController'})
+	.when('/produto/:id',{templateUrl: 'app/views/produto.html', controller: 'produtoController'})
 	
 });
 

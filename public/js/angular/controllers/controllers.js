@@ -16,3 +16,8 @@ myApp.controller('homeController',  function  ($scope) {
 		$scope.produtos.splice(indexof, 1);
 	};
 });
+
+myApp.controller('produtoController', function($scope, $routeParams){
+	console.log($routeParams.id);
+	$scope.idProduto = $routeParams.id;
+});
