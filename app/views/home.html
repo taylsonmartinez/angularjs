@@ -22,9 +22,9 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="produto in produtos | filter: buscaProdutos">
-			<td>{{produto.nome | capitalize}}</td>
-			<td>{{produto.preco | currency: "RS "}}</td>
-			<td>{{produto.data | date: "dd/MM/yyyy"}}</td>
+			<td>{{produto.tb_produtos_nome | capitalize}}</td>
+			<td>{{produto.tb_produtos_preco | currency: "RS "}}</td>
+			<td>{{produto.tb_produtos_data | date: "dd/MM/yyyy"}}</td>
 			<td>
 				<button type="button" class="btn btn-primary btn-lg">
 					<span class="glyphicon glyphicon-pencil"></span> Editar

@@ -1,5 +1,9 @@
-myApp.controller('homeController',  function  ($scope) {
-	$scope.produtos = produtos;
+myApp.controller('homeController',  function  ($scope, $http ) {
+	
+	$http.get('/app/home').success(function(data){
+		produtos = data;
+		$scope.produtos = produtos;
+	});
 
 	//cadastrar
 	$scope.add = function(){
