@@ -1,6 +1,5 @@
 var $=jQuery;
-
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngTable']);
 
 var produtos = [];
 

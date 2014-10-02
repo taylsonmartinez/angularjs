@@ -1,8 +1,19 @@
-myApp.controller('homeController',  function  ($scope, $http ) {
+myApp.controller('homeController',  function  ($scope, $http, ngTableParams ) {
 	
 	$http.get('/app/home').success(function(data){
 		produtos = data;
 		$scope.produtos = produtos;
+
+	//paginação
+	    	$scope.tableParams = new ngTableParams({
+	        page: 1,            // show first page
+	        count: 3           // count per page
+	    	}, {
+	        //total: data.length, 
+	        getData: function($defer, params) {
+	            $defer.resolve(produtos.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+	        }
+	    	});
 	});
 
 	//cadastrar

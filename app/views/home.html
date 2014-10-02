@@ -12,7 +12,7 @@
 <button ng-click="add()" class="btn btn-success">Cadastrar Produto</button>
 </div>
 
-<table width="100%" cellspacing="0" class="table table-hover" style="font-size: 18px;">
+<table width="100%" cellspacing="0" ng-table="tableParams" class="table table-hover" style="font-size: 18px;">
 	<thead>
 		<th>Produto</th>
 		<th>Preço</th>
@@ -21,7 +21,7 @@
 		<th>Deletar</th>
 	</thead>
 	<tbody>
-		<tr ng-repeat="produto in produtos | filter: buscaProdutos">
+		<tr ng-repeat="produto in $data | filter: buscaProdutos">
 			<td>{{produto.tb_produtos_nome | capitalize}}</td>
 			<td>{{produto.tb_produtos_preco | currency: "RS "}}</td>
 			<td>{{produto.tb_produtos_data | date: "dd/MM/yyyy"}}</td>
