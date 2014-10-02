@@ -17,3 +17,14 @@ myApp.filter('capitalize', function(){
 		return input.substr(0, 1).toUpperCase()+input.substr(1);
 	};
 });
+
+function paginacao($scope,ngTableParams,arrayPaginacao,porPagina){
+	$scope.tableParams = new ngTableParams({
+		   page: 1,     
+		   count: porPagina  
+		    }, {
+		    getData: function($defer, params) {
+		    $defer.resolve(arrayPaginacao.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+		}
+	});	
+}
