@@ -21,10 +21,13 @@
 		<th>Deletar</th>
 	</thead>
 	<tbody>
+		<tr>
+        <td id="mensagem-status" style="display: none;text-align: center" colspan="6"></td>
+		</tr>
 	<tr ng-show="tr_edit">
 		<td><input type="text" ng-model="produto_editar.tb_produtos_nome"/></td>
 		<td><input type="text" ng-model="produto_editar.tb_produtos_preco"/></td>
-		<td><button type="button" class="btn btn-success" >Atualizar</button>
+		<td><button type="button" class="btn btn-success" ng-click="atualizar(produto_editar)">Atualizar</button>
 			<button type="button" class="btn btn-danger"  ng-click="cancelar()">Cancelar</button></td>
 	</tr>
 		<tr ng-repeat="produto in $data | filter: buscaProdutos">

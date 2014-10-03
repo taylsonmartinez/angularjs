@@ -1,5 +1,5 @@
 myApp.controller('homeController',  function  ($scope, $http, ngTableParams ) {
-	
+
 	$http.get('/app/home').success(function(data){
 		produtos = data;
 		$scope.produtos = produtos;
@@ -12,10 +12,37 @@ myApp.controller('homeController',  function  ($scope, $http, ngTableParams ) {
 		$scope.tr_edit = true;
 		$scope.produto_editar = index;
 	};
-		//edit
+
+	//atualizar
+	$scope.atualizar = function(index){
+		$http.put('/app/atualizar',index).success(function(data){
+			if(data === 'atualizou'){
+					$("#mensagem-status").show('fast');
+					$("#mensagem-status").addClass('alert alert-success');
+					$("#mensagem-status").html('Atualizado com sucesso');
+				setTimeout(function(){
+					$("#mensagem-status").removeClass('alert alert-success');
+					$("#mensagem-status").hide('fast');
+				},2000);
+			}else{
+					$("#mensagem-status").show('fast');
+					$("#mensagem-status").addClass('alert alert-danger');
+					$("#mensagem-status").html('Erro ao atualizar registro');
+
+				setTimeout(function(){
+					$("#mensagem-status").removeClass('alert alert-danger');
+					$("#mensagem-status").hide('fast');
+				},2000);
+			}
+		});
+	}
+
+
+	//edit
 	$scope.cancelar = function(){
 		$scope.tr_edit = false;
 	};
+
 	//cadastrar
 	$scope.add = function(){
 		console.log($scope.produto);
