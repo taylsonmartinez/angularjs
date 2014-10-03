@@ -7,6 +7,15 @@ myApp.controller('homeController',  function  ($scope, $http, ngTableParams ) {
 	    	paginacao($scope,ngTableParams,produtos,5);
 	});
 
+	//edit
+	$scope.edit = function(index){
+		$scope.tr_edit = true;
+		$scope.produto_editar = index;
+	};
+		//edit
+	$scope.cancelar = function(){
+		$scope.tr_edit = false;
+	};
 	//cadastrar
 	$scope.add = function(){
 		console.log($scope.produto);
