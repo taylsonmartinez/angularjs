@@ -1,10 +1,17 @@
-myApp.controller('homeController',  function  ($scope, $http, ngTableParams ) {
+myApp.controller('homeController',  function  ($scope, $http, ngTableParams, numeroRegistros ) {
+
 
 	$http.get('/app/home').success(function(data){
 		produtos = data;
 		$scope.produtos = produtos;
 
-	    	paginacao($scope,ngTableParams,produtos,5);
+		paginacao($scope,ngTableParams,produtos,5);
+
+    	if(numeroRegistros.semRegistro(produtos)){
+    		$("#mensagem-status").show('fast');
+				$("#mensagem-status").html('Sem registros');
+			}
+
 	});
 
 	//edit
