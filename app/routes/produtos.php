@@ -50,3 +50,26 @@ $app->delete('/deletar/:id', function($id){
 	$produtos->deletar($id);
 	echo 'deletou';
 });
+
+
+$app->post('/cadastrar', function() use($app){
+	$produtos = new \app\models\produtos();
+	$dados = json_decode($app->request()->getBody());
+
+	$nome = filter_var($dados->tb_produtos_nome, FILTER_SANITIZE_STRING);
+	$preco = filter_var($dados->tb_produtos_preco, FILTER_SANITIZE_STRING);
+	$datacadastro = filter_var($dados->tb_produtos_data, FILTER_SANITIZE_STRING);
+
+	$attributes = array(
+		'tb_produtos_nome' => $nome,
+		'tb_produtos_preco' => $preco,
+		'tb_produtos_data' => $datacadastro
+	);
+
+	$produtoCadastrado=$produtos->cadastrar($attributes);
+
+	$toJson = new app\classes\toJson();
+	$jsonProdutos = $toJson->simpleJson($produtoCadastrado);
+	echo $jsonProdutos;
+
+});

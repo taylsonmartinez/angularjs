@@ -45,11 +45,40 @@ myApp.controller('homeController',  function  ($scope, $http, ngTableParams ) {
 
 	//cadastrar
 	$scope.add = function(){
-		console.log($scope.produto);
-		//unshift
-		$scope.produto.data = '1393032898247';
-		produtos.unshift($scope.produto);
-	};
+
+		var date = new Date();
+		dateTime = date.getTime();
+		$scope.produto_cadastrar.tb_produtos_data = dateTime;
+
+		$http.post('/app/cadastrar',$scope.produto_cadastrar).success(function(data){
+			produtos.unshift(data);
+			$scope.tableParams.reload();
+
+				$scope.cadastrar = false;
+				$scope.produto_cadastrar = '';
+
+				console.log(data);
+
+			if(data.id !== 0 && data.id !== undefined){
+				  $("#mensagem-status").show('fast');
+					$("#mensagem-status").addClass('alert alert-success');
+					$("#mensagem-status").html('Cadastrado com sucesso');
+				setTimeout(function(){
+					$("#mensagem-status").removeClass('alert alert-success');
+					$("#mensagem-status").hide('fast');
+				},2000);
+			}else{
+   			 $("#mensagem-status").show('fast');
+					$("#mensagem-status").addClass('alert alert-danger');
+					$("#mensagem-status").html('Erro ao cadastrar registro');
+				setTimeout(function(){
+					$("#mensagem-status").removeClass('alert alert-danger');
+					$("#mensagem-status").hide('fast');
+				},2000);
+			}
+
+		});
+	}
 
 	//deletar
 	$scope.deletar = function(index){
