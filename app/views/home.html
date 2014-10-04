@@ -19,6 +19,7 @@
 		<th>Data</th>
 		<th>Editar</th>
 		<th>Deletar</th>
+		<th>Atualizar</th>
 	</thead>
 	<tbody>
 		<tr>
@@ -43,6 +44,11 @@
 				<button type="button" class="btn btn-danger btn-lg" ng-click="deletar(produto)">
 					<span class="glyphicon glyphicon-remove-circle"></span> Deletar
 				</button>
+			</td>
+			<td>
+				<a type="button" class="btn btn-warning btn-lg" ng-href="#/produto/{{produto.id}}">
+					<span class="glyphicon glyphicon-remove-circle"></span> Atualizar
+				</a>
 			</td>
 		</tr>
 

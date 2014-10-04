@@ -1,0 +1,18 @@
+<div id="form-editar">
+<form action="">
+
+<label>Produto</label>
+<input type="text" name="produto" ng-model="produto_editar.tb_produtos_nome" class="form-control" style="width: 200px;">
+
+<label>Preço</label>
+<input type="text" name="preco" ng-model="produto_editar.tb_produtos_preco" class="form-control" style="width: 200px;">
+
+<label></label>
+<button ng-click="atualizar(produto_editar)" class="btn btn-primary">Atualizar</button>
+
+</form>
+
+<div id="mensagem-status-atualizar" style="display: none;text-align: center;"></div>
+
+<a type="button" class="btn btn-warning" ng-href="/" style="margin-top:10px;">Voltar para lista de produtos</a>
+</div>

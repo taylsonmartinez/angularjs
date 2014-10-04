@@ -32,3 +32,13 @@ $app->put('/atualizar', function() use($app) {
 	$produtos->atualizar($id,$attributes);
 	echo 'atualizou';
 });
+
+//pegar o valor por id
+$app->get('/atualizar/:id', function($id){
+	$produtos = new \app\models\produtos();
+	$produtoEncontrado = $produtos->pegar_pelo_id('id',$id);
+
+	$toJson = new app\classes\toJson();
+	$jsonProdutos = $toJson->simpleJson($produtoEncontrado);
+	echo $jsonProdutos;
+});

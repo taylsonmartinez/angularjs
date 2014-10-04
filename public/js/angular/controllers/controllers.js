@@ -59,7 +59,33 @@ myApp.controller('homeController',  function  ($scope, $http, ngTableParams ) {
 	};
 });
 
-myApp.controller('produtoController', function($scope, $routeParams){
-	console.log($routeParams.id);
-	$scope.idProduto = $routeParams.id;
+myApp.controller('editarProdutoController', function($scope,$routeParams,$http){
+	$http.get('/app/atualizar/'+$routeParams.id).success(function(data){
+		$scope.produto_editar = data;
+	});
+
+	//atualizar
+	$scope.atualizar = function(index){
+		$http.put('/app/atualizar',index).success(function(data){
+			if(data === 'atualizou'){
+					$("#mensagem-status-atualizar").show('fast');
+					$("#mensagem-status-atualizar").addClass('alert alert-success');
+					$("#mensagem-status-atualizar").html('Atualizado com sucesso');
+				setTimeout(function(){
+					$("#mensagem-status-atualizar").removeClass('alert alert-success');
+					$("#mensagem-status-atualizar").hide('fast');
+				},2000);
+			}else{
+					$("#mensagem-status-atualizar").show('fast');
+					$("#mensagem-status-atualizar").addClass('alert alert-danger');
+					$("#mensagem-status-atualizar").html('Erro ao atualizar registro');
+
+				setTimeout(function(){
+					$("#mensagem-status-atualizar").removeClass('alert alert-danger');
+					$("#mensagem-status-atualizar").hide('fast');
+				},2000);
+			}
+		});
+	}
+
 });
