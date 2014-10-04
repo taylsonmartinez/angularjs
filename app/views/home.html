@@ -31,7 +31,7 @@
 		<td><button type="button" class="btn btn-success" ng-click="atualizar(produto_editar)">Atualizar</button>
 			<button type="button" class="btn btn-danger"  ng-click="cancelar()">Cancelar</button></td>
 	</tr>
-		<tr ng-repeat="produto in $data | filter: buscaProdutos">
+		<tr ng-repeat="produto in $data | orderBy: 'tb_produtos_nome' | filter: buscaProdutos">
 			<td>{{produto.tb_produtos_nome | capitalize}}</td>
 			<td>{{produto.tb_produtos_preco | currency: "RS "}}</td>
 			<td>{{produto.tb_produtos_data | date: "dd/MM/yyyy"}}</td>
