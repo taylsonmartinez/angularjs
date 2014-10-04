@@ -10,16 +10,10 @@ myApp.config(function($routeProvider){
 	.when('/produto/:id',{templateUrl: '/app/views/editar.html', controller: 'editarProdutoController'})
 });
 
-myApp.filter('capitalize', function(){
-	return function(input, scope){
-		input = input.toLowerCase();
-		return input.substr(0, 1).toUpperCase()+input.substr(1);
-	};
-});
 
 function paginacao($scope,ngTableParams,arrayPaginacao,porPagina){
 	$scope.tableParams = new ngTableParams({
-		   page: 1,     
+		   page: 1,
 		   count: porPagina
 		    }, {
 		    getData: function($defer, params) {
