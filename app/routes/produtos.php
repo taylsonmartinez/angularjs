@@ -42,3 +42,11 @@ $app->get('/atualizar/:id', function($id){
 	$jsonProdutos = $toJson->simpleJson($produtoEncontrado);
 	echo $jsonProdutos;
 });
+
+
+//deletar
+$app->delete('/deletar/:id', function($id){
+	$produtos = new \app\models\produtos();
+	$produtos->deletar($id);
+	echo 'deletou';
+});

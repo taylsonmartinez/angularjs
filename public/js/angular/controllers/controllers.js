@@ -53,10 +53,33 @@ myApp.controller('homeController',  function  ($scope, $http, ngTableParams ) {
 
 	//deletar
 	$scope.deletar = function(index){
-		var indexof = $scope.produtos.indexOf(index);
-		console.log(indexof);
-		$scope.produtos.splice(indexof, 1);
-	};
+		$http.delete('app/deletar/'+index.id).success(function(data){
+			if(data === 'deletou'){
+
+					var indexof = produtos.indexOf(index);
+					produtos.splice(indexof,1);
+					$scope.tableParams.reload();//atualizar a tabela
+
+					$("#mensagem-status").show('fast');
+					$("#mensagem-status").addClass('alert alert-success');
+					$("#mensagem-status").html('Deletado com sucesso');
+				setTimeout(function(){
+					$("#mensagem-status").removeClass('alert alert-success');
+					$("#mensagem-status").hide('fast');
+				},2000);
+			}else{
+					$("#mensagem-status").show('fast');
+					$("#mensagem-status").addClass('alert alert-success');
+					$("#mensagem-status").html('Erro ao deletar');
+				setTimeout(function(){
+					$("#mensagem-status").removeClass('alert alert-success');
+					$("#mensagem-status").hide('fast');
+				},2000);
+			}
+		});
+	}
+
+
 });
 
 myApp.controller('editarProdutoController', function($scope,$routeParams,$http){
